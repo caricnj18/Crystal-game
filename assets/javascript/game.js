@@ -1,3 +1,14 @@
+//global variables
+
+//game counters
+var winCount = 0;
+var lossCount = 0;
+var guessesLeft =9;
+var counter = 0;
+var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+function startGame(){
+
 
 // targetNumber is ther random number for the user to match to win game
 var targetNumber = Math.floor(Math.random() * (120 - 19)) + 19;
@@ -6,21 +17,17 @@ var targetNumber = Math.floor(Math.random() * (120 - 19)) + 19;
 // Eventually this will allow us to change the HTML to match the value in the JavaScript.
 $("#number-to-guess").text(targetNumber);
 
-//this counter tracks the user's total.
-var counter = 0;
-var wins;
-var lossess;
 
 //numberOptions for each img
-var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
 var increment = numberOptions[Math.round(Math.random())];
 
-/*  For each iteration, we will create an imageCrystal
+//  For each iteration, we will create an imageCrystal
 var imageCrystal = $("<img>");
 
-Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-crystals.append(imageCrystal); */
-
+//Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+crystals.append(imageCrystal); 
+}
 
 $("#crystal-imgs").on("click", ".crystal-imgs", function () {
       counter += increment;
@@ -37,8 +44,9 @@ $("#crystal-imgs").on("click", ".crystal-imgs", function () {
         alert("You lose!!");
       }
 
+//change HTML to reflect round conditions
+document.getElementById("numGuesess").innerHTML = guessesLeft;
+document.getElementById("winCounter").innerHTML = winCount;
+document.getElementById("lossCounter").innerHTML = lossCount;
 
-
-     /*  var html =
-        "<p>Wins: " + wins + "</p>" +
-        "<p>Losses: " + losses + "</p>"; */
+     

@@ -1,93 +1,81 @@
 /*week 4 style sheet*/
 
-body{
-background-color: rgb(154, 255, 231);
+body {
+  background-color: rgb(154, 255, 231);
 }
 
-
-.page-header{
-color: white;
-background-color: rgb(186, 99, 0);
-width: 25%;
-text-align: center;
-padding: 10px;
-margin: 10px;
+.page-header {
+  color: white;
+  background-color: rgb(186, 99, 0);
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
 }
 
-
-.panel-instructions{
-background-color: rgb(255, 255, 134);
-color: green;
-width: 45%;
-padding: 10px;
-margin: 10px;
+.panel-instructions {
+  background-color: rgb(255, 255, 134);
+  color: green;
+  width: 45%;
+  padding: 10px;
+  margin: 10px;
 }
 
-
-.panel-numberGenerator{
-background-color: MediumSeaGreen;;
-color: purple;
-width: 35%;
-padding: 10px;
-margin: 10px;
+.panel-numberGenerator {
+  background-color: MediumSeaGreen;
+  ;
+  color: purple;
+  width: 35%;
+  padding: 10px;
+  margin: 10px;
 }
 
-
-.panel-scoreTracker{
-background-color: rgb(0, 200, 255);
-color: black;
-width:15%;
-padding: 10px;
-margin: 10px;
+.panel-scoreTracker {
+  background-color: rgb(0, 200, 255);
+  color: black;
+  width: 15%;
+  padding: 10px;
+  margin: 10px;
 }
-
 
 /* img  needs to be in one row*/
-.crystal01{
-border-radius: 15px;
-padding: 5px;
-margin: 5px;
-  }
-  
-  
-  .crystal02 {
-border-radius: 15px;
-padding: 5px;
-margin: 5px;
-  }
-  
-  
+
+.crystal01 {
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.crystal02 {
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+}
+
 .crystal03 {
-border-radius: 15px;
-padding: 5px;
-margin: 5px;
-  }
-
-  
-  .crystal04 {
-border-radius: 15px;
-padding: 5px;
-margin: 5px;
-  }
-
-  
-.panel-scoreDisplay{
-background-color:teal;
-color: white;
-width: 35%;
-padding: 10px;
-margin: 10px;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
 }
 
-
-.panel-currentScore{
-background-color:teal;
-color: white;
-width: 35%;
-padding: 10px;
-margin: 10px;
+.crystal04 {
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
 }
 
+.panel-scoreDisplay {
+  background-color: teal;
+  color: white;
+  width: 35%;
+  padding: 10px;
+  margin: 10px;
+}
 
-
-  
+.panel-currentScore {
+  background-color: teal;
+  color: white;
+  width: 35%;
+  padding: 10px;
+  margin: 10px;
+}
