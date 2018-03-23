@@ -3,46 +3,84 @@
 //game counters
 var winCount = 0;
 var lossCount = 0;
-var guessesLeft =9;
-var counter = 0;
-var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var totalCounter = 0;
+var crystalImages =[
+      "assets/images/blueCrystal.jpg",
+      "assets/images/greenCrystal.png",
+      "assets/images/purpleCrystal.jpg",
+      "assets/images/yellowCrystal.jpg",
+];
 
-function startGame(){
+var targetNumber = 0; //starts at 0
+
+function startGame(){ //whats being displayed on screen
+
+targetNumber = Math.floor(Math.random() * (120 - 19)) + 19; //number for user to guess
+totalCounter=0; 
+
+$('#winCounter').text(winCount); //.text for span
+$('#lossCounter').text(winCount);
+$('#targetNumber').text(targetNumber);
+$('#totalScore').text(totalCounter);
 
 
-// targetNumber is ther random number for the user to match to win game
-var targetNumber = Math.floor(Math.random() * (120 - 19)) + 19;
 
-// Here we set the "number-to-guess" header to match the "targetNumber".
-// Eventually this will allow us to change the HTML to match the value in the JavaScript.
-$("#number-to-guess").text(targetNumber);
-
-
-//numberOptions for each img
-
-var increment = numberOptions[Math.round(Math.random())];
-
-//  For each iteration, we will create an imageCrystal
-var imageCrystal = $("<img>");
-
-//Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-crystals.append(imageCrystal); 
+createCrystals();
 }
 
-$("#crystal-imgs").on("click", ".crystal-imgs", function () {
-      counter += increment;
+function createCrystals(){ //displays imgs
+      $("#crystal-section").empty();//refreshes crystals
+for (var i =0;i<crystalImages.length;i++){
+      var $div = $('<div>'); 
+      var $img = $("<img>", {
+            class: "crystal",
+            src:crystalImages[i],
+            width:"50",
+            height: "50",
+      });
 
+//attributes # to img
+      $img.attr("data-value", Math.floor(Math.random() * (12 - 1)) + 1);
+
+$div.append($img);//img into div
+$("#crystal-section").append($div); //finds img section into div
+}
+}
+
+//when clicked run function, eventlistener
+$("#crystal-section").on("click", ".crystal", function(){
+var value = parseInt($(this).attr("data-value"));//string to int
+console.log(value);
+totalCounter +=value;//changes the value of totalcounter
+$('#totalScore').text(totalCounter);
+
+
+//determine if totalCounter is < targetNumber
+if (totalCounter > targetNumber){
+      lossCount++;
+      startGame();
+}else if (totalCounter==targetNumber){
+      winCount++;
+      startGame();
+}
+});
+
+startGame();
+
+
+
+
+
+
+
+
+
+
+$("#crystal-imgs").on("click", ".crystal-imgs", function () {
+      totalCounter += increment;
       alert("New score: " + counter);
 
-      //if_else statement for the wins & losses
-      if (counter == targetNumber) {
-        wins++;
-        alert("Winner!");
-      } else if (counter >= targetNumber) {
-
-        // Then they are alerted with a loss.
-        alert("You lose!!");
-      }
+      
 
 //change HTML to reflect round conditions
 document.getElementById("numGuesess").innerHTML = guessesLeft;
@@ -50,3 +88,15 @@ document.getElementById("winCounter").innerHTML = winCount;
 document.getElementById("lossCounter").innerHTML = lossCount;
 
      
+ $("#number-to-guess").text(targetNumber);
+
+//numberOptions for each img
+var increment = numberOptions[Math.round(Math.random())];
+
+//  For each iteration, we will create an imageCrystal
+var imageCrystal = $("<img>");
+
+//Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+crystals.append(imageCrystal); 
+} 
+
